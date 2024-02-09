@@ -7,6 +7,8 @@ ruby '3.2.2'
 gem 'puma', '>= 5.0'
 gem 'rails', '~> 7.1.2'
 gem 'sqlite3', '~> 1.4'
+gem 'ruby-lsp', require: false
+
 
 gem 'bootsnap', require: false
 gem 'tzinfo-data', platforms: %i[windows jruby]
