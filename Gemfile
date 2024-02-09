@@ -1,20 +1,21 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
 
-ruby "3.2.2"
+source 'https://rubygems.org'
 
-gem "rails", "~> 7.1.2"
-gem "sqlite3", "~> 1.4"
-gem "puma", ">= 5.0"
+ruby '3.2.2'
 
-gem "tzinfo-data", platforms: %i[ windows jruby ]
-gem "bootsnap", require: false
+gem 'puma', '>= 5.0'
+gem 'rails', '~> 7.1.2'
+gem 'sqlite3', '~> 1.4'
+
+gem 'bootsnap', require: false
+gem 'tzinfo-data', platforms: %i[windows jruby]
 
 group :development, :test do
-  gem "debug", platforms: %i[ mri windows ]
+  gem 'debug', platforms: %i[mri windows]
 end
 
 group :development do
   gem 'rubocop', '~> 1.59', require: false
   gem 'rubocop-rails', require: false
 end
-
