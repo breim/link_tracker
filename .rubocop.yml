@@ -1,0 +1,39 @@
+require:
+  - rubocop-rails
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - db/migrate/**
+    - db/schema.rb
+    - bin/**
+    - config/environments/**
+    - vendor/bundle/**/*
+Metrics/MethodLength:
+  Max: 40
+Metrics/AbcSize:
+  Max: 50
+Metrics/CyclomaticComplexity:
+  Max: 10
+Metrics/PerceivedComplexity:
+  Max: 10
+Layout/LineLength:
+  Max: 180
+Metrics/BlockLength:
+  AllowedMethods: ["setup", "describe", "context", "namespace"]
+Style/Lambda:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Lint/MissingSuper:
+  Enabled: false
+Style/MissingRespondToMissing:
+  Enabled: false
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
+Style/HashSyntax:
+  Enabled: false

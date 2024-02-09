@@ -1,0 +1,10 @@
+{
+  "editor.formatOnSave": true,
+  "[ruby]": {
+    "editor.tabSize": 2
+  },
+  "rubyLsp.enabledFeatures": {
+    "inlayHint": false,
+  },
+  "rubyLsp.rubyVersionManager": "rvm"
+}
