@@ -13,5 +13,6 @@ class RedirectsController < ApplicationController
 
   def set_link
     @link = Link.find_by(token: params[:token])
+    Analytic.create_record(@link, browser, request) if @link.present?
   end
 end
