@@ -6,6 +6,7 @@ ruby '3.2.2'
 
 gem 'active_model_serializers'
 gem 'bootsnap', require: false
+gem 'geoip', '~> 1.4.0'
 gem 'puma', '>= 5.0'
 gem 'rails', '~> 7.1.2'
 gem 'responders', '~> 3.0'
