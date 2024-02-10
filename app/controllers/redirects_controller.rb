@@ -4,7 +4,9 @@ class RedirectsController < ApplicationController
   before_action :set_link, only: :show
 
   def show
-    redirect_to @link.original_url, allow_other_host: true if @link.present?
+    return render json: { error: 'Link not found' }, status: :not_found if @link.blank?
+
+    redirect_to @link.original_url, allow_other_host: true, status: :moved_permanently
   end
 
   private
