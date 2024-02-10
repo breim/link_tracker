@@ -17,7 +17,7 @@ module Api
     def create
       @link = Link.new(link_params)
       if @link.save
-        respond_with(@link)
+        respond_with(@link, location: api_link_url(@link))
       else
         respond_with(@link.errors, status: :unprocessable_entity)
       end
