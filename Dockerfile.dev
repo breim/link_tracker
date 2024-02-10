@@ -1,0 +1,17 @@
+FROM ruby:3.2.2
+
+WORKDIR /usr/src/app
+
+COPY Gemfile Gemfile.lock ./
+
+RUN bundle install
+COPY . .
+
+EXPOSE 3000
+
+COPY docker-entrypoint.sh ./
+
+
+CMD ["rails", "server", "-b", "0.0.0.0"]
+
+ENTRYPOINT ["sh", "/usr/src/app/docker-entrypoint.sh"]
