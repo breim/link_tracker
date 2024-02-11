@@ -34,6 +34,13 @@ RSpec.describe Api::LinksController, type: :controller do
       get :show, params: { id: link.id }, format: :json
       expect(response).to have_http_status(:ok)
     end
+
+    it 'ActiveRecord::RecordNotFound to returns a JSON error message' do
+      get :show, params: { id: 999 }, format: :json
+
+      expect(response).to have_http_status(:not_found)
+      expect(response.parsed_body).to eq({ 'error' => 'record not found' })
+    end
   end
 
   describe 'POST #create' do

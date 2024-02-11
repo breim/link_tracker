@@ -26,5 +26,15 @@ RSpec.describe Api::AnalyticsController, type: :controller do
         expect(request_response.size).to eq(10)
       end
     end
+
+    context 'when the link does not exist' do
+      it 'returns a JSON empty' do
+        get :index, params: { link_id: 9999 }, format: :json
+        request_response = response.parsed_body
+
+        expect(response).to have_http_status(:ok)
+        expect(request_response.size).to eq(0)
+      end
+    end
   end
 end
