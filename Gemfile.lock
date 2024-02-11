@@ -106,6 +106,8 @@ GEM
     factory_bot_rails (6.4.3)
       factory_bot (~> 6.4)
       railties (>= 5.0.0)
+    figaro (1.2.0)
+      thor (>= 0.14.0, < 2)
     geoip (1.4.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -276,6 +278,7 @@ DEPENDENCIES
   browser
   debug
   factory_bot_rails
+  figaro
   geoip (~> 1.4.0)
   puma (>= 5.0)
   rails (~> 7.1.2)
