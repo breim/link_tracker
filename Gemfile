@@ -13,10 +13,12 @@ gem 'rails', '~> 7.1.2'
 gem 'responders', '~> 3.0'
 gem 'sqlite3', '~> 1.4'
 gem 'tzinfo-data', platforms: %i[windows jruby]
+gem 'will_paginate', '~> 3.3'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
   gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
   gem 'rspec-rails', '6.1.1'
   gem 'simplecov', require: false, group: :test
 end

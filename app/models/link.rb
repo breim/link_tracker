@@ -4,6 +4,8 @@ class Link < ApplicationRecord
   has_many :analytics, dependent: :destroy
   validates :original_url, presence: true
 
+  self.per_page = 10
+
   before_create :build_token
 
   private

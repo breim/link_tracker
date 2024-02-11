@@ -7,10 +7,25 @@ RSpec.describe Api::LinksController, type: :controller do
   let(:invalid_attributes) { { original_url: '' } }
 
   describe 'GET #index' do
-    it 'returns all links' do
+    before do
+      create_list(:link, 30)
+    end
+
+    it 'returns first page of links with a page param' do
+      get :index, params: { page: 1 }, format: :json
+      expect(assigns(:links).size).to eq(10)
+    end
+
+    it 'returns links ordered by created_at in ascending order' do
+      get :index, format: :json
+      links = assigns(:links)
+      expect(links).to eq(links.sort_by(&:created_at))
+    end
+
+    it 'returns all links without page params' do
       get :index, format: :json
       expect(response).to have_http_status(:ok)
-      expect(response.parsed_body.size).to eq(1)
+      expect(response.parsed_body.size).to eq(10)
     end
   end
 

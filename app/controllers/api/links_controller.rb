@@ -5,7 +5,7 @@ module Api
     respond_to :json
 
     def index
-      @links = Link.all
+      @links = Link.paginate(page: params[:page]).order(created_at: :asc)
       respond_with(@links)
     end
 
