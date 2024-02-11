@@ -3,6 +3,8 @@
 class Analytic < ApplicationRecord
   belongs_to :link, counter_cache: true
 
+  self.per_page = 10
+
   def self.create_record(link, browser, request)
     location = GEO_IP.city(request.ip)
     attributes = extract_attributes(browser, request, location)

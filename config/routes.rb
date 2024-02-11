@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'up' => 'rails/health#show', as: :rails_health_check
 
   namespace :api, path: 'api/v1', defaults: { format: :json } do
-    resources :links
+    resources :links do
+      resources :analytics, only: :index
+    end
   end
 end
