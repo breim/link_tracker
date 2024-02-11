@@ -34,3 +34,6 @@
 
 # Ignore covarage path
 /coverage
+
+# Ignore application.yml
+/config/application.yml

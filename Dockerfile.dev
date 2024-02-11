@@ -7,6 +7,8 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle install
 COPY . .
 
+RUN mv /usr/src/app/config/application.example.yml /usr/src/app/config/application.yml
+
 EXPOSE 3000
 
 COPY docker-entrypoint.sh ./
