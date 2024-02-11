@@ -26,11 +26,12 @@ RSpec.describe RedirectsController, type: :controller do
       end
     end
 
-    context 'when the link is not found' do
-      it 'returns a 404 not found response' do
-        get :show, params: { token: 'invalidtoken' }
+    context 'when the link does not exist' do
+      it 'ActiveRecord::RecordNotFound to returns a JSON error message' do
+        get :show, params: { token: 'invalid_token' }
+
         expect(response).to have_http_status(:not_found)
-        expect(response.parsed_body).to eq({ 'error' => 'Link not found' })
+        expect(response.parsed_body).to eq({ 'error' => 'record not found' })
       end
     end
   end
