@@ -3,7 +3,6 @@
 FactoryBot.define do
   factory :analytic do
     association :link
-    session { SecureRandom.hex(10) }
     system_name { 'macOS' }
     browser_name { 'Chrome' }
     browser_version { '121.0.0.0' }

@@ -10,9 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_09_233859) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_11_233822) do
   create_table "analytics", force: :cascade do |t|
-    t.string "session"
     t.string "system_name"
     t.string "browser_name"
     t.string "browser_version"
@@ -32,7 +31,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_09_233859) do
 
   create_table "links", force: :cascade do |t|
     t.string "original_url"
-    t.string "short_url"
     t.string "token"
     t.integer "analytics_count", default: 0
     t.datetime "created_at", null: false
