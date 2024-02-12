@@ -60,8 +60,8 @@ Run:
 docker run -p 3000:3000 link_tracker
 ```
 
-Open in your browser:
-``http://localhost:3000/``
+Open in your browser to redirect and save the access:
+``http://localhost:3000/<TOKEN>``
 
 
 
@@ -110,5 +110,7 @@ I've integrated the GeoIP library and [Maxmind's database](https://dev.maxmind.c
 Materials and links I used for consulting during the project development:
 
 [CounterCache Rails](https://blog.appsignal.com/2018/06/19/activerecords-counter-cache.html)
+
 [Factory Bot Tutorial](https://semaphoreci.com/community/tutorials/working-effectively-with-data-factories-using-factorygirl)
+
 [Rspec Rails models](https://remimercier.com/how-to-test-rails-models-with-rspec/)
