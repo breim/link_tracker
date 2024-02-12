@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.9.34
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "README";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><div id='filecontents'>
+<h1 id="label-Link+Tracker+Application">Link Tracker Application</h1>
+
+<h2 id="label-Overview">Overview</h2>
+
+<p>My app simplifies link tracking, making it ideal for evaluating digital engagement. It’s built on clean, tested code, ensuring reliability. Designed for ease and efficiency, it generates trackable shortened URLs.</p>
+
+<p>Some ‘cheats’ that I used in the home assignment: - Github Copilot ( only to auto complete some methods or variables ) - Github Copilot to generate bases of rspec files ( fixed inconsistencies and some small tests by myself )</p>
+
+<h2 id="label-Technologies+used">Technologies used</h2>
+
+<pre class="code ruby"><code class="ruby">ruby 3.2.2 ( [yjti enabled](https://github.com/Shopify/yjit) )
+rails 7.1.2
+responders
+browser
+geoip
+figaro
+sqlite3
+ruby-lsp
+rspec
+rubocop
+factory_bot_rails
+simplecov
+</code></pre>
+
+<h2 id="label-API+Documentation">API Documentation</h2>
+
+<p>The API has been meticulously documented using Slate, offering enhanced readability and interpretation for users. This documentation provides a comprehensive guide, ensuring ease of use and accessibility for all potential API consumers.</p>
+
+<p><a href="<strong>https://breim.github.io/link_tracker_api_docs/</strong><a" target="_parent" title="href=&quot;https://breim.github.io/link_tracker_api_docs/&quot;&gt;">href="https://breim.github.io/link_tracker_api_docs/"></a></a></p>
+
+<h2 id="label-Running+the+tests">Running the tests</h2>
+
+<p>Just run inside the project folder:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rspec'>rspec</span>
+</code></pre>
+
+<p>You also can check the tests covarage using simplecov after running rspec:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_open'>open</span> <span class='id identifier rubyid_coverage'>coverage</span><span class='op'>/</span><span class='id identifier rubyid_index'>index</span><span class='period'>.</span><span class='id identifier rubyid_html'>html</span>
+</code></pre>
+
+<h2 id="label-Running+locally">Running locally</h2>
+
+<p>To enhance convenience, I have developed a compact Docker image.</p>
+
+<p>Build:</p>
+
+<pre class="code ruby"><code class="ruby">docker build -f Dockerfile.dev -t link_tracker .
+</code></pre>
+
+<p>Run:</p>
+
+<pre class="code ruby"><code class="ruby">docker run -p 3000:3000 link_tracker
+</code></pre>
+
+<p>Open in your browser to redirect and save the access: <code>http://localhost:3000/&lt;TOKEN&gt;</code></p>
+
+<h2 id="label-BONUS">BONUS</h2>
+
+<p>I’ve integrated the GeoIP library and <a href="https://dev.maxmind.com/geoip/geolite2-free-geolocation-data">Maxmind’s database</a> within the analytics functionality to capture and store geographical details such as latitude, longitude, city, state, and additional information based on IP addresses. However, when accessed via localhost in a development environment, Rails captures the IP address 127.0.0.1, leading to limited data retrieval. In contrast, in a production environment with a genuine IP address, the system is designed to successfully return a comprehensive set of information.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='lbracket'>[</span>
+	<span class='lbrace'>{</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id</span><span class='label_end'>&quot;:</span> <span class='int'>3</span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>system_name</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>macOS</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>browser_name</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Chrome</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>browser_version</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>121.0.0.0</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>referer</span><span class='label_end'>&quot;:</span> <span class='id identifier rubyid_null'>null</span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>country</span><span class='label_end'>&quot;:</span> <span class='id identifier rubyid_null'>null</span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>region</span><span class='label_end'>&quot;:</span> <span class='id identifier rubyid_null'>null</span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>city</span><span class='label_end'>&quot;:</span> <span class='id identifier rubyid_null'>null</span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>latitude</span><span class='label_end'>&quot;:</span> <span class='id identifier rubyid_null'>null</span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>longitude</span><span class='label_end'>&quot;:</span> <span class='id identifier rubyid_null'>null</span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ip</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>::1</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>device</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>mac</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>created_at</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>2024-02-11T22:33:00.106Z</span><span class='tstring_end'>&quot;</span></span>
+	<span class='rbrace'>}</span><span class='comma'>,</span>
+	<span class='lbrace'>{</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id</span><span class='label_end'>&quot;:</span> <span class='int'>4</span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>system_name</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>macOS</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>browser_name</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Chrome</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>browser_version</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>121.0.0.0</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>referer</span><span class='label_end'>&quot;:</span> <span class='id identifier rubyid_null'>null</span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>country</span><span class='label_end'>&quot;:</span> <span class='id identifier rubyid_null'>null</span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>region</span><span class='label_end'>&quot;:</span> <span class='id identifier rubyid_null'>null</span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>city</span><span class='label_end'>&quot;:</span> <span class='id identifier rubyid_null'>null</span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>latitude</span><span class='label_end'>&quot;:</span> <span class='id identifier rubyid_null'>null</span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>longitude</span><span class='label_end'>&quot;:</span> <span class='id identifier rubyid_null'>null</span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ip</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>::1</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>device</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>mac</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+		<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>created_at</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>2024-02-11T22:36:11.708Z</span><span class='tstring_end'>&quot;</span></span>
+	<span class='rbrace'>}</span><span class='comma'>,</span>
+<span class='rbracket'>]</span>
+</code></pre>
+
+<h2 id="label-References">References</h2>
+
+<p>Materials and links I used for consulting during the project development:</p>
+
+<p><a href="https://blog.appsignal.com/2018/06/19/activerecords-counter-cache.html">CounterCache Rails</a></p>
+
+<p><a href="https://semaphoreci.com/community/tutorials/working-effectively-with-data-factories-using-factorygirl">Factory Bot Tutorial</a></p>
+
+<p><a href="https://remimercier.com/how-to-test-rails-models-with-rspec/">Rspec Rails models</a></p>
+</div></div>
+
+      <div id="footer">
+  Generated on Sun Feb 11 22:07:32 2024 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.34 (ruby-3.2.2).
+</div>
+
+    </div>
+  </body>
+</html>

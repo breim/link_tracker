@@ -28,4 +28,5 @@ group :development do
   gem 'rubocop', '~> 1.59', require: false
   gem 'rubocop-rails', require: false
   gem 'ruby-lsp', require: false
+  gem 'yard'
 end
