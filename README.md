@@ -32,6 +32,7 @@ The API has been meticulously documented using Slate, offering enhanced readabil
 
 [**https://breim.github.io/link_tracker_api_docs/**](https://breim.github.io/link_tracker_api_docs/)
 
+The API postman collection is also available in the root folder of the project ([tracker.postman_collection.json](https://github.com/breim/link_tracker/blob/main/tracker.postman_collection.json))
 
 ## Running the tests
 
