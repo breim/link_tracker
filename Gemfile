@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+Gemfile# frozen_string_literal: true
 
 source 'https://rubygems.org'
 
@@ -28,5 +28,4 @@ group :development do
   gem 'rubocop', '~> 1.59', require: false
   gem 'rubocop-rails', require: false
   gem 'ruby-lsp', require: false
-  gem 'yard'
 end
