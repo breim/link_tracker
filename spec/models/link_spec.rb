@@ -18,4 +18,10 @@ RSpec.describe Link, type: :model do
     link = create(:link, token: nil)
     expect(link.token).not_to be_nil
   end
+
+  it 'validates the original_url format' do
+    link = build(:link, original_url: 'not-a-valid-url')
+    expect(link).not_to be_valid
+    expect(link.errors.messages[:original_url]).to include('is not a valid URL')
+  end
 end

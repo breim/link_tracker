@@ -3,6 +3,7 @@
 class Link < ApplicationRecord
   has_many :analytics, dependent: :destroy
   validates :original_url, presence: true
+  validate :validate_url
 
   self.per_page = 10
 
@@ -12,5 +13,14 @@ class Link < ApplicationRecord
 
   def build_token
     self.token = SecureRandom.urlsafe_base64(5)
+  end
+
+  def validate_url
+    uri = URI.parse(original_url)
+    is_valid = uri.is_a?(URI::HTTP) || uri.is_a?(URI::HTTPS)
+
+    errors.add(:original_url, 'is not a valid URL') unless is_valid
+  rescue URI::InvalidURIError
+    errors.add(:original_url, 'is not a valid URL')
   end
 end
