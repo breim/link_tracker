@@ -3,6 +3,7 @@
 class Link < ApplicationRecord
   has_many :analytics, dependent: :destroy
   validates :original_url, presence: true
+  validates :token, uniqueness: true
   validate :validate_url
 
   self.per_page = 10
