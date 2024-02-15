@@ -12,10 +12,6 @@ class Analytic < ApplicationRecord
     create(attributes.merge(link_id: link&.id))
   end
 
-  def self.retrive_device?(browser)
-    browser.platform
-  end
-
   def self.extract_attributes(browser, request, location)
     {
       system_name: browser.platform.name.to_s,
@@ -28,7 +24,7 @@ class Analytic < ApplicationRecord
       latitude: location&.latitude,
       longitude: location&.longitude,
       ip: request.ip,
-      device: retrive_device?(browser)
+      device: browser&.platform
     }
   end
 end
